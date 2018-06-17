@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Facebook Example</title>
+</head>
+<body>
+	<h1>
+		Hello, <span th:text="${profileName}"></span>!!
+	</h1>
+	<h4>Here is your feeds:</h4>
+	<div th:each="post:${posts}">
+		<b th:text="${post.from.name}"></b> wrote:
+		<p th:text="${post.message}"></p>
+		<p th:text="${post.createdTime}"></p>
+		<img th:if="${post.picture}" th:src="${post.picture}" />
+		<br/>
+	</div>
+	<a href="/connect/facebook">Go back</a>
+</body>
+</html>
